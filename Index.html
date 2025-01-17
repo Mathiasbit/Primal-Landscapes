@@ -112,24 +112,46 @@
     </div>
   </section>
 
-  <!-- Transformations / Portfolio Teaser -->
-  <section class="transformations">
-    <h2>Witness Stunning Garden Transformations</h2>
-    <div class="transformation-list">
-      <div class="transformation-item">
-        <strong>Project 1:</strong> Old lawn replaced with new turf & modern patio.
-      </div>
-      <div class="transformation-item">
-        <strong>Project 2:</strong> Bespoke pergola installation and sleeper flower beds.
-      </div>
-      <div class="transformation-item">
-        <strong>Project 3:</strong> Block paving driveway and new fencing for added curb appeal.
-      </div>
-    </div>
-    <p style="margin-top: 1rem;">
-      <a href="#" class="btn-primary">View Our Full Portfolio</a>
-    </p>
-  </section>
+<!-- Transformations / Portfolio Teaser -->
+<section class="transformations">
+  <h2>Witness Stunning Garden Transformations</h2>
+
+  <!-- Slider Container -->
+  <div class="slider">
+    <!-- Three local images -->
+    <div class="slide active" style="background-image: url('Images/Blockpaving.JPG');"></div>
+    <div class="slide" style="background-image: url('Images/Curved.JPG');"></div>
+    <div class="slide" style="background-image: url('Images/Spatio.JPG');"></div>
+  </div>
+
+  <p style="margin-top: 1rem;">
+    <a href="#" class="btn-primary">View Our Full Portfolio</a>
+  </p>
+</section>
+
+<!-- Basic Slider Script (place at the bottom of the body) -->
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slider .slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) {
+        slide.classList.add('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Automatically change slides every 3 seconds
+  setInterval(nextSlide, 3000);
+</script>
+
 
   <!-- Final CTA Section -->
   <section class="final-cta">
