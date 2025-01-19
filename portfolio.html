@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Primal Landscapes - Portfolio</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- HEADER / NAVBAR -->
   <header>
     <nav>
       <div class="logo">Primal Landscapes</div>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="old-home.html">Old Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="portfolio.html" class="active">Portfolio</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -21,89 +21,105 @@
     </nav>
   </header>
 
-  <!-- PORTFOLIO ITEM HEADER SECTION -->
-  <section class="hero" style="background-image: url('https://via.placeholder.com/1200x400');">
+  <!-- Hero / Header Section -->
+  <section class="hero" style="background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Our Portfolio</h1>
-      <p>Explore our completed projects and see the transformations for yourself.</p>
+      <p>Explore recent transformations and get inspired.</p>
     </div>
   </section>
 
-  <!-- PORTFOLIO LIST SECTION -->
+  <!-- Portfolio Gallery / Slider (Optional) -->
+  <section class="transformations">
+    <h2>Showcasing Our Work</h2>
+    <!-- 
+      If you want the same small slider approach:
+    -->
+    <div class="slider">
+      <div class="slide active" style="background-image: url('Images/Fulls Trans - After/Half.jpg');"></div>
+      <div class="slide" style="background-image: url('Images/Fulls Trans - After/Steve.jpg');"></div>
+      <div class="slide" style="background-image: url('Images/Fulls Trans - After/Nice.jpg');"></div>
+
+      <!-- Slider Navigation Arrows -->
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <p style="margin-top: 1rem;">
+      <a href="contact.html" class="btn-primary">Request a Quote</a>
+    </p>
+  </section>
+
+  <!-- Optionally list more project highlights -->
   <section class="services">
-    <h2>Recent Projects</h2>
+    <h2>Before & After Highlights</h2>
     <div class="services-grid">
       <div class="service-box">
-        <h3>Project 1</h3>
-        <p>Modern patio and bespoke pergola installation.</p>
-        <a href="project.html" class="btn-primary">View Details</a>
+        <img src="https://via.placeholder.com/400x300" alt="Project 1">
+        <h3>Modern Patio Makeover</h3>
+        <p>Upgraded materials, custom pergola, lush turf.</p>
       </div>
       <div class="service-box">
-        <h3>Project 2</h3>
-        <p>Front garden makeover with a new driveway and fencing.</p>
-        <a href="project.html" class="btn-primary">View Details</a>
+        <img src="https://via.placeholder.com/400x300" alt="Project 2">
+        <h3>Front Garden Overhaul</h3>
+        <p>Driveway paving, fencing, and new flower beds.</p>
       </div>
       <div class="service-box">
-        <h3>Project 3</h3>
-        <p>Complete back garden transformation with sleeper beds and turfing.</p>
-        <a href="project.html" class="btn-primary">View Details</a>
-      </div>
-      <!-- Add more project cards as needed -->
-    </div>
-  </section>
-
-  <!-- FEATURE SECTION (Optional) -->
-  <section class="about">
-    <div class="about-text">
-      <h2>Our Approach to Every Project</h2>
-      <p>
-        From initial consultation to final handover, our focus is on quality craftsmanship and customer satisfaction.
-      </p>
-    </div>
-    <div class="about-image"></div>
-  </section>
-
-  <!-- PORTFOLIO ITEM BODY SECTION (Optional Teaser) -->
-  <section class="transformations">
-    <h2>Before & After Shots</h2>
-    <div class="transformation-list">
-      <div class="transformation-item">
-        <strong>Patio Overhaul:</strong>
-        <p>Replaced old slabs with modern pavers and installed a decorative pergola.</p>
+        <img src="https://via.placeholder.com/400x300" alt="Project 3">
+        <h3>Sleeper Terracing</h3>
+        <p>Retaining walls and multi-level planting zones.</p>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL SECTION -->
-  <section class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-cards">
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <div class="testimonial-text">“The transformation was incredible—top-notch work!”</div>
-        <div class="testimonial-author">- Linda R.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="final-cta">
-    <h2>Want to See More?</h2>
-    <p>Check out our individual project pages or contact us for details.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
-  </section>
-
+  <!-- FOOTER -->
   <footer>
     <div class="footer-links">
       <a href="index.html">Home</a> | 
-      <a href="old-home.html">Old Home</a> | 
       <a href="services.html">Services</a> | 
       <a href="portfolio.html" class="active">Portfolio</a> | 
       <a href="contact.html">Contact</a>
     </div>
     <p>&copy; 2025 Primal Landscapes. All rights reserved.</p>
   </footer>
+
+  <!-- SLIDER SCRIPT (if reusing the small slider approach) -->
+  <script>
+    let currentSlide = 0;
+    let autoSlideInterval;
+    const slides = document.querySelectorAll('.slider .slide');
+
+    showSlide(currentSlide);
+    startAutoSlide();
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+      resetAutoSlide();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        nextSlide();
+      }, 3000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+  </script>
 
 </body>
 </html>
