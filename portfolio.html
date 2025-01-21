@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Primal Landscapes - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- Inline style for the gallery grid (or place in styles.css) -->
+  <style>
+    /* Example grid styling for the gallery */
+    .gallery-grid {
+      display: grid;
+      gap: 1rem;
+      /* Increased min width from 250px to 375px (~50% bigger) */
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      width: 80%;
+      margin: 2rem auto;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 
@@ -30,27 +50,43 @@
     </div>
   </section>
 
-  <!-- Portfolio Gallery / Slider (Optional) -->
+  <!-- Grid-Style Gallery Section (Replacing the slider) -->
   <section class="transformations">
     <h2>Showcasing Our Work</h2>
-    <!-- 
-      If you want the same small slider approach:
-    -->
-    <div class="slider">
-      <div class="slide active" style="background-image: url('Images/Fulls Trans - After/Half.jpg');"></div>
-      <div class="slide" style="background-image: url('Images/Fulls Trans - After/Steve.jpg');"></div>
-      <div class="slide" style="background-image: url('Images/Fulls Trans - After/Nice.jpg');"></div>
-
-      <!-- Slider Navigation Arrows -->
-      <button class="prev" onclick="prevSlide()">&#10094;</button>
-      <button class="next" onclick="nextSlide()">&#10095;</button>
+    <div class="gallery-grid">
+      <!-- Replace these placeholders with your real images -->
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
+      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
+      <!-- Add more images as needed -->
     </div>
     <p style="margin-top: 1rem;">
       <a href="contact.html" class="btn-primary">Request a Quote</a>
     </p>
   </section>
 
-  <!-- Optionally list more project highlights -->
+  <!-- Additional Project Highlights (Optional) -->
   <section class="services">
     <h2>Before & After Highlights</h2>
     <div class="services-grid">
@@ -83,43 +119,7 @@
     <p>&copy; 2025 Primal Landscapes. All rights reserved.</p>
   </footer>
 
-  <!-- SLIDER SCRIPT (if reusing the small slider approach) -->
-  <script>
-    let currentSlide = 0;
-    let autoSlideInterval;
-    const slides = document.querySelectorAll('.slider .slide');
-
-    showSlide(currentSlide);
-    startAutoSlide();
-
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-      resetAutoSlide();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-      resetAutoSlide();
-    }
-
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-        nextSlide();
-      }, 3000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
-  </script>
-
 </body>
 </html>
+
+
