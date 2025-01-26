@@ -7,63 +7,57 @@
   box-sizing: border-box;
 }
 
+/*
+   Updated color palette:
+   - Charcoal (darker) for body background
+   - A slightly brighter gold
+   - White nav bar
+   - off-white or lighter shades for boxes/sections
+*/
+:root {
+  --charcoal:   #2C2C2C;  /* Dark charcoal background */
+  --gold:       #D4B45A;  /* Lighter, brighter gold accent */
+  --white:      #FFFFFF;  /* White for navbar */
+  --off-white:  #F2F2F2;  /* Or #EAEAEA if you prefer */
+}
+
+/* Body: charcoal background, white text */
 body {
   font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
-  color: #EEE; /* We'll use a lighter text color overall for better contrast */
-  background-color: #202221; /* Dark brand background */
+  color: var(--white);
+  background-color: var(--charcoal);
 }
 
 /* -----------------------------
-   2. Color Variables (BRAND)
+   2. Sticky White Navbar
 ------------------------------ */
-:root {
-  /* Adapting your brand palette */
-  --primary-color: #B68B4B; /* A bold accent color */
-  --primary-color-dark: #654922;
-  --secondary-color: #4D574E; /* Another brand tone */
-  
-  /* Overwriting or removing the older ones for clarity */
-  /* --white: #fff;    Not used as main BG now, but you can keep if needed */
-  /* --dark-gray: #333; Possibly replaced by #303531 or #202221 as BG */
-  /* --light-gray: #fafafa;  Might swap for #303531 or #95672F if you want */
+/* 
+   .sticky-header + nav as needed, 
+   or directly style <header> as sticky.
+*/
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-/* -----------------------------
-   3. Global Layout Containers
------------------------------- */
-header,
-nav,
-section,
-footer {
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/* -----------------------------
-   4. Navbar
------------------------------- */
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* 
-   We'll give the nav a subtle background from the brand palette
-   and lighten the text for contrast
-*/
-header {
-  background-color: #303531;
-}
-
 nav .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #FFF; /* White text for contrast */
+  color: var(--charcoal); /* Dark text on white nav */
+  text-decoration: none;
 }
 
+/* Navbar menu links */
 nav ul {
   list-style: none;
   display: flex;
@@ -72,40 +66,40 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #EEE; /* Light text color */
+  color: var(--charcoal);
   font-weight: 600;
   transition: color 0.2s;
 }
 
 nav ul li a:hover {
-  color: var(--primary-color); /* #B68B4B */
+  color: var(--gold);
 }
 
-/* Highlight for the 'active' page link */
 nav ul li a.active {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
 }
 
 /* -----------------------------
-   5. Hero Section
+   3. Hero Section
 ------------------------------ */
 .hero {
-  background: url("https://via.placeholder.com/1200x500") center/cover no-repeat;
-  color: #FFF; /* White text since hero BG is darkish */
-  text-align: center;
-  padding: 4rem 1rem;
   position: relative;
   min-height: 400px;
+  background: url("https://via.placeholder.com/1200x500") center/cover no-repeat;
+  text-align: center;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .hero-overlay {
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   z-index: 1;
 }
 
@@ -126,28 +120,34 @@ nav ul li a.active {
   margin-bottom: 2rem;
 }
 
+/* Gold button on charcoal background */
 .btn-primary {
-  background-color: var(--primary-color);
-  color: #FFF;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
+  background-color: var(--gold);
+  color: var(--charcoal);
+  border: none;
   border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  text-decoration: none;
+  transition: background-color 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-color-dark);
+  background-color: #C2A049; /* Slightly darker shade of gold */
 }
 
 /* -----------------------------
-   6. Services Section
+   4. Services Section
 ------------------------------ */
+/* We'll lighten this section with an off-white background, 
+   dark text for contrast. 
+*/
 .services {
-  background-color: #303531; /* Use a dark gray brand color for contrast */
-  padding: 2rem 1rem;
+  background-color: var(--off-white);
+  color: var(--charcoal);
   text-align: center;
-  color: #EEE;
+  padding: 2rem 1rem;
 }
 
 .services h2 {
@@ -155,10 +155,7 @@ nav ul li a.active {
   margin-bottom: 2rem;
 }
 
-/* 
-   Reuse .services-grid, .testimonial-cards, .transformation-list
-   for shared grid/gap style
-*/
+/* Grid layouts */
 .services-grid,
 .testimonial-cards,
 .transformation-list {
@@ -170,24 +167,26 @@ nav ul li a.active {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+/* Each service box: white or off-white with a subtle border */
 .service-box {
-  background-color: #4D574E; /* Slightly lighter to stand out on #303531 */
+  background-color: var(--white);
+  border: 1px solid var(--gold);
   border-radius: 4px;
   padding: 1rem;
-  min-height: 200px;
-  transition: transform 0.2s ease;
-  color: #FFF;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  color: var(--charcoal);
 }
 
 .service-box:hover {
   transform: translateY(-5px);
+  border-color: #C2A049; /* darker gold on hover */
 }
 
 .service-box img {
   width: 100%;
   height: 130px;
   object-fit: cover;
-  background-color: #222;
+  background-color: var(--charcoal);
   margin-bottom: 1rem;
   border-radius: 4px;
 }
@@ -198,7 +197,7 @@ nav ul li a.active {
 }
 
 /* -----------------------------
-   7. About / Benefits Section
+   5. About Section
 ------------------------------ */
 .about {
   display: flex;
@@ -206,8 +205,8 @@ nav ul li a.active {
   gap: 2rem;
   padding: 2rem 1rem;
   align-items: center;
-  background-color: #202221; /* Another brand color for variety */
-  color: #EEE;
+  background-color: var(--gold);
+  color: var(--charcoal);
 }
 
 .about-text {
@@ -217,12 +216,17 @@ nav ul li a.active {
   margin: 0 auto;
 }
 
+/* We'll center the about-text vertically/horizontally if you like. */
+.fully-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .about-text h2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .about-text p {
@@ -230,20 +234,20 @@ nav ul li a.active {
 }
 
 .about .about-image {
+  flex: 1 1 300px;
   background: url("https://via.placeholder.com/600x400") center/cover no-repeat;
   min-height: 300px;
   border-radius: 4px;
-  flex: 1 1 300px;
 }
 
 /* -----------------------------
-   8. Testimonials Section
+   6. Testimonials Section
 ------------------------------ */
 .testimonials {
-  background-color: #303531;
-  padding: 2rem 1rem;
+  background-color: var(--off-white);
+  color: var(--charcoal);
   text-align: center;
-  color: #EEE;
+  padding: 2rem 1rem;
 }
 
 .testimonials h2 {
@@ -252,23 +256,22 @@ nav ul li a.active {
 }
 
 .testimonial-card {
-  background-color: #4D574E;
+  background-color: var(--white);
   border-radius: 4px;
   padding: 1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  color: var(--charcoal);
+  border: 1px solid var(--gold);
   min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease;
-  color: #FFF;
 }
 
 .testimonial-card:hover {
   transform: scale(1.02);
+  border-color: #C2A049;
 }
 
 .star-rating {
-  color: #f2b01e;
+  color: var(--gold);
   margin-bottom: 0.5rem;
 }
 
@@ -283,13 +286,13 @@ nav ul li a.active {
 }
 
 /* -----------------------------
-   9. Transformations Section
+   7. Transformations Section
 ------------------------------ */
 .transformations {
-  background-color: #202221;
+  background-color: var(--off-white);
   padding: 2rem 1rem;
   text-align: center;
-  color: #EEE;
+  color: var(--charcoal);
 }
 
 .transformations h2 {
@@ -297,125 +300,18 @@ nav ul li a.active {
   margin-bottom: 2rem;
 }
 
-/* 
-   If you still need .transformation-item styles,
-   they can remain here. If not used, remove.
-*/
-.transformation-item {
-  background-color: #4D574E;
-  width: 80%;
-  padding: 1rem;
-  border-radius: 4px;
-  text-align: left;
-  transition: background-color 0.2s ease;
-  margin: 0 auto;
-}
-.transformation-item:hover {
-  background-color: #303531;
-}
-.transformation-item strong {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* -----------------------------
-   10. Final CTA Section
------------------------------- */
-.final-cta {
-  background-color: var(--secondary-color); /* #4D574E */
-  text-align: center;
-  padding: 4rem 4rem;
-  color: #FFF;
-}
-
-.final-cta h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.final-cta p {
-  margin-bottom: 2rem;
-}
-
-.final-cta .btn-primary {
-  margin-top: 2rem;
-}
-
-/* -----------------------------
-   11. Footer
------------------------------- */
-footer {
-  background-color: #303531;
-  color: #FFF;
-  padding: 2rem 1rem;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-footer .footer-links {
-  margin-bottom: 1rem;
-}
-
-footer .footer-links a {
-  color: #FFF;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-footer .footer-links a:hover {
-  text-decoration: underline;
-}
-
-footer p {
-  font-size: 0.875rem;
-}
-
-/* -----------------------------
-   12. Responsive Adjustments
------------------------------- */
-@media (max-width: 768px) {
-  .about {
-    flex-direction: column;
-  }
-
-  .about-image {
-    min-height: 200px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .services,
-  .about,
-  .testimonials,
-  .transformations {
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* -----------------------------
-   13. Slider 
------------------------------- */
+/* SLIDER (If used) */
 .slider {
   position: relative;
-  width: 27%;         /* was 80%, now much smaller */
+  width: 40%;
   margin: 0 auto;
   overflow: hidden;
-  height: 400px;      /* was 400px, drastically reduced to 100px */
-  border: 2px solid #B68B4B; /* or 1px if you want a thinner line as well */
+  height: 300px;
+  border: 2px solid var(--gold);
   border-radius: 8px;
+  background-color: var(--white);
 }
 
-/* Keep everything else the same for .slide, .slide.active, 
-   .prev, .next, etc. */
-
-
-/* Each Slide */
 .slider .slide {
   position: absolute;
   top: 0; 
@@ -434,28 +330,26 @@ footer p {
   z-index: 1;
 }
 
-/* Slider Buttons (Arrows) */
+/* Slider Buttons */
 .slider button.prev,
 .slider button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0,0,0,0.4);
-  color: #fff;
+  color: var(--white);
   border: none;
   font-size: 2rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 4px;
-  z-index: 2; /* Appear over slides */
-  transition: background-color 0.2s ease;
+  z-index: 2;
+  transition: background-color 0.2s;
 }
 .slider button.prev:hover,
 .slider button.next:hover {
   background-color: rgba(0,0,0,0.7);
 }
-
-/* Positioning the arrows */
 .slider button.prev {
   left: 10px;
 }
@@ -463,3 +357,74 @@ footer p {
   right: 10px;
 }
 
+/* -----------------------------
+   8. Final CTA Section
+------------------------------ */
+.final-cta {
+  background-color: var(--charcoal);
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--white);
+}
+.final-cta h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.final-cta p {
+  margin-bottom: 2rem;
+}
+.final-cta .btn-primary {
+  margin-top: 2rem;
+  background-color: var(--gold);
+  color: var(--charcoal);
+}
+.final-cta .btn-primary:hover {
+  background-color: #C2A049;
+}
+
+/* -----------------------------
+   9. Footer
+------------------------------ */
+footer {
+  background-color: var(--charcoal);
+  color: var(--white);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+footer .footer-links {
+  margin-bottom: 1rem;
+}
+footer .footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+footer .footer-links a:hover {
+  color: var(--gold);
+}
+footer p {
+  font-size: 0.875rem;
+}
+
+/* -----------------------------
+   10. Responsive Adjustments
+------------------------------ */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .services,
+  .about,
+  .testimonials,
+  .transformations {
+    padding: 1.5rem 1rem;
+  }
+}
