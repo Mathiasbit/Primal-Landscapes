@@ -9,8 +9,11 @@
 </head>
 <body>
 
-  <!-- HEADER / NAVBAR -->
-  <header class="sticky-header">
+  <!-- 
+    HEADER / NAVBAR
+    - 'stickyHeader' ID is used by the scroll script to make it semi-transparent on scroll.
+  -->
+  <header id="stickyHeader">
     <nav>
       <div class="logo">Primal Landscapes</div>
       <ul>
@@ -22,17 +25,17 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Transform Your Garden with Primal Landscapes</h1>
-      <p>Relax, entertain, and add value to your home with our expert craftsmanship.</p>
+      <h1>Professional Landscaping</h1>
+      <p>Relax, entertain, and add value to your home</p>
       <a href="#" class="btn-primary">Get a Quote</a>
     </div>
   </section>
 
-  <!-- Services Section: Row 1 -->
+  <!-- SERVICES SECTION (Row 1) -->
   <section class="services">
     <h2>Stunning Patio Designs</h2>
     <div class="services-grid">
@@ -54,12 +57,12 @@
     </div>
   </section>
 
-  <!-- Services Section: Row 2 -->
+  <!-- SERVICES SECTION (Row 2) -->
   <section class="services">
     <h2>Expert Landscaping Services</h2>
     <div class="services-grid">
       <div class="service-box">
-        <img src="Sleeper.JPG" alt="Sleeper Work">
+        <img src="Images/Sleeper.JPG" alt="Sleeper Work">
         <h3>Sleeper Work</h3>
         <p>Retaining walls, planters, and more using durable sleepers.</p>
       </div>
@@ -76,7 +79,7 @@
     </div>
   </section>
 
-  <!-- About / Benefits Section -->
+  <!-- ABOUT / BENEFITS SECTION -->
   <section class="about">
     <div class="about-text fully-centered">
       <h2>Your Landscaping Partner</h2>
@@ -89,7 +92,7 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
+  <!-- TESTIMONIALS SECTION -->
   <section class="testimonials">
     <h2>Happy Clients</h2>
     <div class="testimonial-cards">
@@ -111,13 +114,12 @@
     </div>
   </section>
 
-  <!-- Transformations / Portfolio Teaser -->
+  <!-- TRANSFORMATIONS / PORTFOLIO TEASER -->
   <section class="transformations">
     <h2>Stunning Transformations</h2>
 
     <!-- Slider Container -->
     <div class="slider">
-      <!-- Slides -->
       <div class="slide active" style="background-image: url('Images/Fulls Trans - After/Half.jpg');"></div>
       <div class="slide" style="background-image: url('Images/Fulls Trans - After/Steve.jpg');"></div>
       <div class="slide" style="background-image: url('Images/Fulls Trans - After/Nice.jpg');"></div>
@@ -132,14 +134,14 @@
     </p>
   </section>
 
-  <!-- Final CTA Section -->
+  <!-- FINAL CTA SECTION -->
   <section class="final-cta">
     <h2>Ready to Get Started?</h2>
     <p>Request a quote today and let us bring your vision to life.</p>
     <a href="#" class="btn-primary">Contact Us</a>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-links">
       <a href="index.html" class="active">Home</a> | 
@@ -150,47 +152,7 @@
     <p>&copy; 2025 Primal Landscapes. All rights reserved.</p>
   </footer>
 
-  <!-- SLIDER SCRIPT -->
-  <script>
-    let currentSlide = 0;
-    let autoSlideInterval;
-    const slides = document.querySelectorAll('.slider .slide');
-
-    // Show the initial slide
-    showSlide(currentSlide);
-
-    // Start auto-scrolling
-    startAutoSlide();
-
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-      resetAutoSlide();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-      resetAutoSlide();
-    }
-
-    function startAutoSlide() {
-      // Auto-change slides every 3 seconds
-      autoSlideInterval = setInterval(() => {
-        nextSlide();
-      }, 3000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
-  </script>
-
+  <!-- External JS File -->
+  <script src="scripts.js"></script>
 </body>
 </html>
