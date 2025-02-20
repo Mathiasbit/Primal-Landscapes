@@ -53,8 +53,8 @@ body {
   /* Transparent by default (so hero image behind it is visible) */
   background-color: transparent;
   transition: background-color 0.3s ease;
-  padding: 1.35rem 2.7rem;
-  min-height: 60px; /* ensures consistent nav height */
+  padding: 1.0rem 2.0rem;
+  min-height: 20px; /* ensures consistent nav height */
 }
 
 /* 
