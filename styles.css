@@ -1,7 +1,5 @@
 /* 
   1. BASIC RESET & BODY STYLING
-  - Sets up zero margin/padding, universal box-sizing, 
-    default font and color scheme.
 */
 * {
   margin: 0;
@@ -9,13 +7,6 @@
   box-sizing: border-box;
 }
 
-/*
-  Color palette:
-    - Charcoal: #2C2C2C (dark background)
-    - Gold:     #D4B45A (lighter, brighter gold accent)
-    - White:    #FFFFFF
-    - Off-white:#F2F2F2
-*/
 :root {
   --charcoal:   #2C2C2C;
   --gold:       #D4B45A;
@@ -23,46 +14,28 @@
   --off-white:  #F2F2F2;
 }
 
-/* 
-  Main body:
-    - Dark charcoal background
-    - White text
-*/
 body {
   font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
   color: var(--white);
   background-color: var(--charcoal);
-  /* 
-     If the nav is fixed/transparent at top, 
-     consider adding top padding so content doesn’t 
-     hide behind it. E.g.:
-     padding-top: 80px;
-  */
 }
 
 /* 
-  2. TRANSPARENT NAV AT TOP, 
-     SEMI-OPAQUE WHEN SCROLLED
-  - #stickyHeader is fixed so it overlaps the hero background
+  2. NAVBAR 
 */
 #stickyHeader {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 999;
-  /* Transparent by default (so hero image behind it is visible) */
   background-color: transparent;
   transition: background-color 0.3s ease;
-  padding: 1.0rem 2.0rem;
-  min-height: 20px; /* ensures consistent nav height */
+  padding: 1rem 2rem; 
+  min-height: 50px;
 }
 
-/* 
-  Once scrolled (via JS), 
-  we make it semi-transparent white (75%)
-*/
 #stickyHeader.scrolled {
-  background-color: rgba(44, 44, 44, 0.75);
+  background-color: rgba(44,44,44,0.75); /* if you want semi-opaque charcoal on scroll */
 }
 
 #stickyHeader nav {
@@ -74,12 +47,6 @@ body {
 #stickyHeader .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  /* 
-     White text so it’s visible on top of hero image. 
-     If you want it dark once scrolled, 
-     do:
-     #stickyHeader.scrolled .logo { color: var(--charcoal); }
-  */
   color: var(--white);
   text-decoration: none;
 }
@@ -88,37 +55,31 @@ body {
   list-style: none;
   display: flex;
   gap: 1rem;
-  margin-left: 2rem; /* shift nav items from edge */
+  margin-left: 2rem;
 }
 
 #stickyHeader ul li a {
   text-decoration: none;
-  /* White to match the transparent top nav over hero */
   color: var(--white);
   font-weight: 600;
   transition: color 0.2s;
 }
-
 #stickyHeader ul li a:hover {
   color: var(--gold);
 }
-
 #stickyHeader ul li a.active {
   color: var(--gold);
   border-bottom: 2px solid var(--gold);
 }
 
-/*
+/* 
   3. HERO SECTION
-  - Contains a hero background image + semi-transparent overlay
 */
 .hero {
   position: relative;
   min-height: 400px;
-  /* Hero image path */
   background: url("Images/Fulls Trans - After/Nice.jpg") center/cover no-repeat;
   text-align: center;
-  color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,12 +87,8 @@ body {
   padding: 2rem;
 }
 
-/* 
-  Charcoal overlay at 50% 
-  so we see the hero image but tinted
-*/
 .hero-overlay {
-  background-color: rgba(44, 44, 44, 0.5);
+  background-color: rgba(44,44,44,0.5);
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   z-index: 1;
@@ -149,12 +106,6 @@ body {
   margin-bottom: 1rem;
 }
 
-.hero-content p {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-}
-
-/* GOLD BUTTON WITH DARK TEXT */
 .btn-primary {
   background-color: var(--gold);
   color: var(--charcoal);
@@ -166,13 +117,12 @@ body {
   text-decoration: none;
   transition: background-color 0.2s;
 }
-
 .btn-primary:hover {
-  background-color: #C2A049; /* Slightly darker gold */
+  background-color: #C2A049;
 }
 
 /* 
-  4. SERVICES SECTION (OFF-WHITE)
+  4. SERVICES SECTION 
 */
 .services {
   background-color: var(--off-white);
@@ -200,28 +150,21 @@ body {
   transition: transform 0.2s ease, border-color 0.2s ease;
   color: var(--charcoal);
 }
-
 .service-box:hover {
   transform: translateY(-5px);
   border-color: #C2A049;
 }
-
 .service-box img {
   width: 100%;
   height: 130px;
   object-fit: cover;
-  background-color: var(--charcoal);
   margin-bottom: 1rem;
   border-radius: 4px;
-}
-
-.service-box h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  border: 2px solid #ccc;
 }
 
 /* 
-  5. ABOUT SECTION (GOLD BACKGROUND)
+  5. ABOUT SECTION
 */
 .about {
   display: flex;
@@ -232,39 +175,25 @@ body {
   background-color: var(--charcoal);
   color: var(--white);
 }
-
 .fully-centered {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .about-text {
   flex: 1 1 300px;
   text-align: center;
   max-width: 650px;
   margin: 0 auto;
 }
-
 .about-text h2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
-.about-text p {
-  margin-bottom: 1.5rem;
-}
-
-.about .about-image {
-  flex: 1 1 300px;
-  background: url("https://via.placeholder.com/600x400") center/cover no-repeat;
-  min-height: 300px;
-  border-radius: 4px;
-}
-
 /* 
-  6. TESTIMONIALS SECTION (OFF-WHITE)
+  6. TESTIMONIALS
 */
 .testimonials {
   background-color: var(--off-white);
@@ -272,17 +201,14 @@ body {
   text-align: center;
   padding: 2rem 1rem;
 }
-
 .testimonials h2 {
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
-
 .testimonial-cards {
   display: grid;
   gap: 1.5rem;
 }
-
 .testimonial-card {
   background-color: var(--white);
   border-radius: 4px;
@@ -292,103 +218,96 @@ body {
   border: 1px solid var(--gold);
   min-height: 120px;
 }
-
 .testimonial-card:hover {
   transform: scale(1.02);
   border-color: #C2A049;
 }
-
 .star-rating {
   color: var(--gold);
   margin-bottom: 0.5rem;
 }
-
 .testimonial-text {
   font-style: italic;
   margin-bottom: 0.5rem;
 }
-
 .testimonial-author {
   font-size: 0.9rem;
   font-weight: 600;
 }
 
 /* 
-  7. TRANSFORMATIONS SECTION (OFF-WHITE)
+  7. FULL-WIDTH SLIDER (DOTS)
 */
-.transformations {
-  background-color: var(--off-white);
-  padding: 2rem 1rem;
-  text-align: center;
-  color: var(--charcoal);
-}
-
-.transformations h2 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-/* SLIDER */
-.slider {
+.fullwidth-slider {
+  width: 100%;
   position: relative;
-  width: 40%;
-  margin: 0 auto;
-  overflow: hidden;
-  height: 300px;
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  background-color: var(--white);
+  text-align: center; 
+  /* Optionally some margin or padding if you like */
+  margin: 2rem 0;
 }
 
+.fullwidth-slider h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* The container for slides is .slider 
+   which is full width and a defined height. 
+*/
+.slider {
+  width: 75%;
+  height: 75%; /* e.g. a fixed height */
+  position: center;
+  overflow: hidden;
+  background-color: #ccc;
+}
+
+/* Each .slide uses a background image */
 .slide {
   position: absolute;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover; /* or contain */
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease;
   z-index: 0;
 }
-
 .slide.active {
   opacity: 1;
   z-index: 1;
 }
 
-.slider button.prev,
-.slider button.next {
+/* The dot container, absolutely positioned at bottom center */
+.dots {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
-  color: var(--white);
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
+  bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2; 
+}
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
   cursor: pointer;
-  border-radius: 4px;
-  z-index: 2;
   transition: background-color 0.2s;
 }
-
-.slider button.prev:hover,
-.slider button.next:hover {
-  background-color: rgba(0,0,0,0.7);
+.dot:hover {
+  background-color: rgba(255,255,255,0.8);
 }
-
-.slider button.prev {
-  left: 10px;
-}
-.slider button.next {
-  right: 10px;
+.dot.active {
+  background-color: rgba(255,255,255,1);
 }
 
 /* 
-  8. FINAL CTA SECTION 
-  - Dark charcoal BG, white text
+  8. FINAL CTA 
 */
 .final-cta {
   background-color: var(--charcoal);
@@ -396,59 +315,70 @@ body {
   padding: 4rem 1rem;
   color: var(--white);
 }
-
 .final-cta h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-
 .final-cta p {
   margin-bottom: 2rem;
 }
-
 .final-cta .btn-primary {
   margin-top: 2rem;
   background-color: var(--gold);
   color: var(--charcoal);
 }
-
 .final-cta .btn-primary:hover {
   background-color: #C2A049;
 }
 
 /* 
-  9. FOOTER
-  - Dark charcoal BG, white text
+  9. FOOTER 
 */
 footer {
   background-color: var(--charcoal);
   color: var(--white);
-  padding: 2rem 1rem;
   text-align: center;
+  padding: 2rem 1rem;
   margin-top: 2rem;
 }
 
-footer .footer-links {
+.footer-links {
   margin-bottom: 1rem;
 }
-
-footer .footer-links a {
+.footer-links a {
   color: var(--white);
   text-decoration: none;
   margin: 0 0.5rem;
 }
-
-footer .footer-links a:hover {
+.footer-links a:hover {
   color: var(--gold);
+}
+
+/* Social icons in footer */
+.footer-socials {
+  margin-top: 1rem;
+}
+.footer-socials a {
+  margin: 0 0.5rem;
+  display: inline-block;
+}
+.footer-socials .social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+.footer-socials .social-icon:hover {
+  opacity: 0.8;
 }
 
 footer p {
   font-size: 0.875rem;
+  margin-top: 0.5rem;
 }
 
 /* 
   10. RESPONSIVE ADJUSTMENTS
-  - Adjust nav layout, hero text, etc. for smaller screens
 */
 @media (max-width: 768px) {
   #stickyHeader ul {
@@ -459,7 +389,6 @@ footer p {
   .hero-content h1 {
     font-size: 2rem;
   }
-
   .hero-content p {
     font-size: 1rem;
   }
@@ -467,7 +396,13 @@ footer p {
   .services,
   .about,
   .testimonials,
-  .transformations {
+  .fullwidth-slider {
     padding: 1.5rem 1rem;
   }
+
+  /* Make the slider shorter on mobile if desired */
+  .slider {
+    height: 40vh; 
+  }
 }
+
