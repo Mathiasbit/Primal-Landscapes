@@ -1,19 +1,19 @@
 /**
  * scripts.js
  * 
- * 1) Full-width slider with dots (no arrows).
- * 2) (Optional) Sticky header scroll logic.
+ * 1) Full-width slider with "background-size: contain," 
+ *    fixed height (400px).
+ * 2) Dot navigation, auto-rotation every 4s.
+ * 3) Optional sticky nav logic (semi-opaque on scroll).
  */
 
-// SLIDER CODE
+// Slider variables
 let slideIndex = 0;
 let autoSlideInterval;
 const slides = document.querySelectorAll('.slider .slide');
 const dotsContainer = document.getElementById('dots');
 
-/**
- * Dynamically create dot elements based on # of slides
- */
+/* Create dot elements for each slide */
 slides.forEach((slide, i) => {
   const dot = document.createElement('span');
   dot.classList.add('dot');
@@ -22,32 +22,33 @@ slides.forEach((slide, i) => {
   dotsContainer.appendChild(dot);
 });
 
+/* Initialize: show first slide, highlight first dot, start auto-rotation */
 showSlide(slideIndex);
 updateDots(slideIndex);
 startAutoSlide();
 
 /**
- * showSlide(index)
- * - Hide all slides, show the targeted one
+ * showSlide(index):
+ * - remove 'active' from all slides, add to target
  */
 function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
+  slides.forEach(s => s.classList.remove('active'));
   slides[index].classList.add('active');
 }
 
 /**
- * updateDots(index)
- * - Deactivate all .dot, activate the current one
+ * updateDots(index):
+ * - remove 'active' from all .dot, add to target
  */
 function updateDots(index) {
   const dots = document.querySelectorAll('.dot');
-  dots.forEach(dot => dot.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
   dots[index].classList.add('active');
 }
 
 /**
- * nextSlide()
- * - increment slideIndex, wrap around, show & update dot
+ * nextSlide():
+ * - increment index, wrap around
  */
 function nextSlide() {
   slideIndex = (slideIndex + 1) % slides.length;
@@ -56,8 +57,8 @@ function nextSlide() {
 }
 
 /**
- * setSlide(i)
- * - jump directly to slide i
+ * setSlide(i):
+ * - jump to slide i, reset auto timer
  */
 function setSlide(i) {
   slideIndex = i;
@@ -67,8 +68,8 @@ function setSlide(i) {
 }
 
 /**
- * startAutoSlide()
- * - auto-rotate slides every 4s
+ * startAutoSlide():
+ * - rotate slides every 4 seconds
  */
 function startAutoSlide() {
   autoSlideInterval = setInterval(() => {
@@ -77,18 +78,15 @@ function startAutoSlide() {
 }
 
 /**
- * resetAutoSlide()
- * - clear the interval & restart
+ * resetAutoSlide():
+ * - clear & restart interval after manual click
  */
 function resetAutoSlide() {
   clearInterval(autoSlideInterval);
   startAutoSlide();
 }
 
-/**
- * (Optional) Sticky Header Logic
- *   if you want the nav bar to become opaque on scroll
- */
+/* OPTIONAL: sticky nav scroll logic */
 function initNavScroll() {
   const header = document.getElementById('stickyHeader');
   window.addEventListener('scroll', () => {
@@ -100,8 +98,9 @@ function initNavScroll() {
   });
 }
 
-// DOMContentLoaded for any initializations
+/* On DOMContentLoaded, run initNavScroll if desired */
 document.addEventListener('DOMContentLoaded', () => {
-  initNavScroll(); // If you want the stickyHeader scrolled effect
+  initNavScroll();
 });
+
 

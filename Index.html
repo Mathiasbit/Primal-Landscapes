@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Primal Landscapes - Home</title>
+  <title>Primal Landscapes - Smaller Slider</title>
   <!-- Link to External CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -13,7 +13,7 @@
   <header id="stickyHeader">
     <nav>
       <div class="logo">
-        <!-- Replace the path to your actual logo -->
+        <!-- Replace with your actual path to the Primal logo -->
         <img 
           src="Primal Logo Square White/Primal Logo Square White.png" 
           alt="Primal Landscapes Logo" 
@@ -49,7 +49,6 @@
     <h2>Quality Landscaping Services</h2>
     <div class="services-grid">
       <div class="service-box">
-        <!-- Example image path -->
         <img src="Images/Patios/MOSHB1815.JPG" alt="Patios">
         <h3>Patios</h3>
         <p>Proudly laying each slab to perfection—backed by a 5-year guarantee.</p>
@@ -94,8 +93,8 @@
     <div class="about-text fully-centered">
       <h2>Your Landscaping Partner</h2>
       <p>
-        At Primal Landscapes, we’re committed to exceptional craftsmanship, attentive customer care, 
-        and outdoor designs that impress. From the first consultation to the finishing touches, 
+        At Primal Landscapes, we’re committed to exceptional craftsmanship, attentive customer care,
+        and outdoor designs that impress. From the first consultation to the finishing touches,
         our team handles every detail—ensuring your vision comes to life.
       </p>
       <a href="#" class="btn-primary">Learn More</a>
@@ -109,9 +108,7 @@
       <div class="testimonial-card">
         <div class="star-rating">★★★★★</div>
         <div class="testimonial-text">
-          “They completely transformed our Garden & Driveway, catered to all of our needs, 
-          especially considerate to our dogs during the construction work, 
-          couldn't be happier with the results!”
+          “They completely transformed our Garden & Driveway, catered to all of our needs, especially considerate to our dogs during the construction work, couldn't be happier with the results!”
         </div>
         <div class="testimonial-author">- Jan H.</div>
       </div>
@@ -122,26 +119,25 @@
       </div>
       <div class="testimonial-card">
         <div class="star-rating">★★★★★</div>
-        <div class="testimonial-text">
-          “Excellent service from start to finish. Garden looks brand new! Highly recommended!”
-        </div>
+        <div class="testimonial-text">“Excellent service from start to finish. Garden looks brand new! Highly recommended!”</div>
         <div class="testimonial-author">- Stephen H.</div>
       </div>
     </div>
   </section>
 
-  <!-- FULL-WIDTH SLIDER SECTION (No arrows, just dots) -->
+  <!-- FULL-WIDTH SLIDER (LESS ZOOM, FIXED HEIGHT) -->
   <section class="fullwidth-slider">
     <h2>Take a look at our Transformations</h2>
 
+    <!-- The slider container with fixed height, background-size: contain -->
     <div class="slider">
-      <!-- Each .slide uses a background-image -->
+      <!-- Replace images with your actual paths -->
       <div class="slide active" style="background-image: url('Images/xsgardenn2.JPG');"></div>
       <div class="slide" style="background-image: url('Images/Sgardenf.jpg');"></div>
       <div class="slide" style="background-image: url('Images/Fulls Trans - After/Nice.jpg');"></div>
     </div>
 
-    <!-- Dot navigation container -->
+    <!-- Dot navigation container (populated by JS) -->
     <div class="dots" id="dots"></div>
 
     <p style="margin-top: 1rem;">
@@ -184,5 +180,6 @@
   <script src="scripts.js"></script>
 </body>
 </html>
+
 
 

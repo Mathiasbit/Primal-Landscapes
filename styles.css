@@ -1,6 +1,4 @@
-/* 
-  1. BASIC RESET & BODY STYLING
-*/
+/* BASIC RESET */
 * {
   margin: 0;
   padding: 0;
@@ -21,43 +19,37 @@ body {
   background-color: var(--charcoal);
 }
 
-/* 
-  2. NAVBAR 
-*/
+/* NAVBAR */
 #stickyHeader {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0; 
+  left: 0; 
+  right: 0;
   z-index: 999;
   background-color: transparent;
   transition: background-color 0.3s ease;
   padding: 1rem 2rem; 
   min-height: 50px;
 }
-
 #stickyHeader.scrolled {
-  background-color: rgba(44,44,44,0.75); /* if you want semi-opaque charcoal on scroll */
+  background-color: rgba(44,44,44,0.75);
 }
-
 #stickyHeader nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 #stickyHeader .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--white);
-  text-decoration: none;
 }
-
 #stickyHeader ul {
   list-style: none;
   display: flex;
   gap: 1rem;
   margin-left: 2rem;
 }
-
 #stickyHeader ul li a {
   text-decoration: none;
   color: var(--white);
@@ -72,9 +64,7 @@ body {
   border-bottom: 2px solid var(--gold);
 }
 
-/* 
-  3. HERO SECTION
-*/
+/* HERO */
 .hero {
   position: relative;
   min-height: 400px;
@@ -86,26 +76,25 @@ body {
   justify-content: center;
   padding: 2rem;
 }
-
 .hero-overlay {
   background-color: rgba(44,44,44,0.5);
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
   z-index: 1;
 }
-
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
   margin: 0 auto;
 }
-
 .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 .btn-primary {
   background-color: var(--gold);
   color: var(--charcoal);
@@ -121,27 +110,22 @@ body {
   background-color: #C2A049;
 }
 
-/* 
-  4. SERVICES SECTION 
-*/
+/* SERVICES (Two Rows Example) */
 .services {
   background-color: var(--off-white);
   color: var(--charcoal);
   text-align: center;
   padding: 2rem 1rem;
 }
-
 .services h2 {
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
-
 .services-grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
-
 .service-box {
   background-color: var(--white);
   border: 1px solid var(--gold);
@@ -163,9 +147,7 @@ body {
   border: 2px solid #ccc;
 }
 
-/* 
-  5. ABOUT SECTION
-*/
+/* ABOUT */
 .about {
   display: flex;
   flex-wrap: wrap;
@@ -192,9 +174,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* 
-  6. TESTIMONIALS
-*/
+/* TESTIMONIALS */
 .testimonials {
   background-color: var(--off-white);
   color: var(--charcoal);
@@ -235,42 +215,34 @@ body {
   font-weight: 600;
 }
 
-/* 
-  7. FULL-WIDTH SLIDER (DOTS)
-*/
+/* FULL-WIDTH SLIDER (Fixed Height, contain) */
 .fullwidth-slider {
   width: 100%;
   position: relative;
-  text-align: center; 
-  /* Optionally some margin or padding if you like */
+  text-align: center;
   margin: 2rem 0;
 }
-
 .fullwidth-slider h2 {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
-
-/* The container for slides is .slider 
-   which is full width and a defined height. 
-*/
+/* The slider container with a fixed height (smaller) */
 .slider {
-  width: 75%;
-  height: 75%; /* e.g. a fixed height */
-  position: center;
+  position: relative;
+  width: 100%;
+  height: 400px; /* Adjust as needed for smaller/larger slider */
   overflow: hidden;
   background-color: #ccc;
 }
-
-/* Each .slide uses a background image */
 .slide {
   position: absolute;
   top: 0; 
   left: 0;
   width: 100%;
   height: 100%;
+  background-size: contain; /* show entire image, less zoom */
   background-position: center;
-  background-size: cover; /* or contain */
+  background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 0;
@@ -279,15 +251,14 @@ body {
   opacity: 1;
   z-index: 1;
 }
-
-/* The dot container, absolutely positioned at bottom center */
+/* Dot navigation container */
 .dots {
   position: absolute;
   bottom: 1rem;
   width: 100%;
   display: flex;
   justify-content: center;
-  z-index: 2; 
+  z-index: 2;
 }
 .dot {
   display: inline-block;
@@ -306,9 +277,7 @@ body {
   background-color: rgba(255,255,255,1);
 }
 
-/* 
-  8. FINAL CTA 
-*/
+/* FINAL CTA */
 .final-cta {
   background-color: var(--charcoal);
   text-align: center;
@@ -331,9 +300,7 @@ body {
   background-color: #C2A049;
 }
 
-/* 
-  9. FOOTER 
-*/
+/* FOOTER */
 footer {
   background-color: var(--charcoal);
   color: var(--white);
@@ -341,7 +308,6 @@ footer {
   padding: 2rem 1rem;
   margin-top: 2rem;
 }
-
 .footer-links {
   margin-bottom: 1rem;
 }
@@ -353,8 +319,6 @@ footer {
 .footer-links a:hover {
   color: var(--gold);
 }
-
-/* Social icons in footer */
 .footer-socials {
   margin-top: 1rem;
 }
@@ -371,15 +335,12 @@ footer {
 .footer-socials .social-icon:hover {
   opacity: 0.8;
 }
-
 footer p {
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
 
-/* 
-  10. RESPONSIVE ADJUSTMENTS
-*/
+/* RESPONSIVE */
 @media (max-width: 768px) {
   #stickyHeader ul {
     flex-direction: column;
@@ -400,9 +361,10 @@ footer p {
     padding: 1.5rem 1rem;
   }
 
-  /* Make the slider shorter on mobile if desired */
+  /* On mobile, maybe reduce the slider height further if needed */
   .slider {
-    height: 40vh; 
+    height: 250px;
   }
 }
+
 
