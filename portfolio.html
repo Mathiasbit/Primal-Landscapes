@@ -1,125 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Primal Landscapes - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Inline style for the gallery grid (or place in styles.css) -->
-  <style>
-    /* Example grid styling for the gallery */
-    .gallery-grid {
-      display: grid;
-      gap: 1rem;
-      /* Increased min width from 250px to 375px (~50% bigger) */
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      width: 80%;
-      margin: 2rem auto;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primal Landscapes – Portfolio</title>
+
+  <!-- main stylesheet (unchanged) -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- HEADER / NAVBAR -->
-  <header>
+  <!-- ────────── NAVBAR ────────── -->
+  <header id="stickyHeader">
     <nav>
-      <div class="logo">Primal Landscapes</div>
+      <div class="logo">
+        <img src="Primal Logo Square White/Primal Logo Square White.png"
+             alt="Primal Landscapes Logo" style="height:40px;width:auto;" />
+      </div>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="portfolio.html" class="active">Portfolio</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero / Header Section -->
-  <section class="hero" style="background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Our Portfolio</h1>
-      <p>Explore recent transformations and get inspired.</p>
+  <!-- ────────── HERO SLIDER ────────── -->
+  <section class="hero-slider">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active"
+         style="background-image:url('Images/Portfolio/Patio-hero.jpg');">
+      <div class="hero-slide-content">
+        <p class="hero-eyebrow">Our Portfolio</p>
+        <h1>Patios &amp; Pergolas</h1>
+        <p class="hero-desc">Precision paving, bespoke timberwork and ambient lighting.</p>
+        <a href="#gallery" class="btn-primary">View&nbsp;Gallery</a>
+      </div>
     </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide"
+         style="background-image:url('Images/Portfolio/Drive-hero.jpg');">
+      <div class="hero-slide-content">
+        <p class="hero-eyebrow">Our Portfolio</p>
+        <h1>Driveway Transformations</h1>
+        <p class="hero-desc">Durable block paving that elevates kerb appeal.</p>
+        <a href="#gallery" class="btn-primary">View&nbsp;Gallery</a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide"
+         style="background-image:url('Images/Portfolio/Garden-hero.jpg');">
+      <div class="hero-slide-content">
+        <p class="hero-eyebrow">Our Portfolio</p>
+        <h1>Garden Redesigns</h1>
+        <p class="hero-desc">Lush planting schemes and multi-level sleeper work.</p>
+        <a href="#gallery" class="btn-primary">View&nbsp;Gallery</a>
+      </div>
+    </div>
+
+    <!-- dots + arrows (scripts.js already handles these) -->
+    <div class="hero-dots"  id="heroDots"></div>
+    <button class="hero-arrow hero-arrow--left"  id="heroPrev"><span></span></button>
+    <button class="hero-arrow hero-arrow--right" id="heroNext"><span></span></button>
   </section>
 
-  <!-- Grid-Style Gallery Section (Replacing the slider) -->
-  <section class="transformations">
+  <!-- ────────── INSTAGRAM-STYLE GALLERY GRID ────────── -->
+  <section id="gallery" class="transformations">
     <h2>Showcasing Our Work</h2>
+
     <div class="gallery-grid">
-      <!-- Replace these placeholders with your real images -->
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <img src="Images/Fulls Trans - After/Steve.jpg" alt="Project Image 2">
-      <img src="Images/Fulls Trans - After/Nice.jpg" alt="Project Image 3">
-      <!-- Add more images as needed -->
-    </div>
-    <p style="margin-top: 1rem;">
-      <a href="contact.html" class="btn-primary">Request a Quote</a>
-    </p>
-  </section>
-
-  <!-- Additional Project Highlights (Optional) -->
-  <section class="services">
-    <h2>Before & After Highlights</h2>
-    <div class="services-grid">
-      <div class="service-box">
-        <img src="https://via.placeholder.com/400x300" alt="Project 1">
-        <h3>Modern Patio Makeover</h3>
-        <p>Upgraded materials, custom pergola, lush turf.</p>
-      </div>
-      <div class="service-box">
-        <img src="https://via.placeholder.com/400x300" alt="Project 2">
-        <h3>Front Garden Overhaul</h3>
-        <p>Driveway paving, fencing, and new flower beds.</p>
-      </div>
-      <div class="service-box">
-        <img src="https://via.placeholder.com/400x300" alt="Project 3">
-        <h3>Sleeper Terracing</h3>
-        <p>Retaining walls and multi-level planting zones.</p>
-      </div>
+      <!-- Replace with real images; add/remove as many as you wish -->
+      <img src="Images/nice.jpg" alt="Project image 1">
+      <img src="Images/nice.jpg" alt="Project image 2">
+      <img src="Images/nice.jpg" alt="Project image 3">
+      <img src="Images/nice.jpg" alt="Project image 4">
+      <img src="Images/nice.jpg" alt="Project image 5">
+      <img src="Images/nice.jpg" alt="Project image 6">
+      <img src="Images/nice.jpg" alt="Project image 7">
+      <img src="Images/nice.jpg" alt="Project image 8">
+      <img src="Images/nice.jpg" alt="Project image 9">
+      <img src="Images/nice.jpg" alt="Project image 10">
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ────────── FINAL CTA ────────── -->
+  <section class="final-cta">
+    <h2>Inspired by Our Work?</h2>
+    <p>Let’s discuss how we can transform your outdoor space.</p>
+    <a href="contact.html" class="btn-primary">Start&nbsp;Your&nbsp;Project</a>
+  </section>
+
+  <!-- ────────── FOOTER ────────── -->
   <footer>
     <div class="footer-links">
-      <a href="index.html">Home</a> | 
-      <a href="services.html">Services</a> | 
-      <a href="portfolio.html" class="active">Portfolio</a> | 
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="portfolio.html" class="active">Portfolio</a> |
       <a href="contact.html">Contact</a>
     </div>
     <p>&copy; 2025 Primal Landscapes. All rights reserved.</p>
+
+    <div class="footer-socials">
+      <a href="https://facebook.com"  target="_blank" rel="noopener">
+        <img src="Images/socials/fb.png" alt="Facebook" class="social-icon" />
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener">
+        <img src="Images/Socials/ig.png" alt="Instagram" class="social-icon" />
+      </a>
+      <a href="https://x.com"          target="_blank" rel="noopener">
+        <img src="Images/Socials/logo-white.png" alt="X" class="social-icon" />
+      </a>
+      <a href="https://linkedin.com"   target="_blank" rel="noopener">
+        <img src="images/Socials/Lin.png" alt="LinkedIn" class="social-icon" />
+      </a>
+    </div>
   </footer>
 
+  <!-- existing JS -->
+  <script src="scripts.js"></script>
 </body>
 </html>
+
+
+
+
 
 

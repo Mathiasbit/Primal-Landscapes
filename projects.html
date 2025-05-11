@@ -1,104 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Primal Landscapes - Project Details</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primal Landscapes – Projects</title>
+
+  <!-- main stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <header>
+  <!-- ────────── NAVBAR ────────── -->
+  <header id="stickyHeader">
     <nav>
-      <div class="logo">Primal Landscapes</div>
+      <div class="logo">
+        <img src="Primal Logo Square White/Primal Logo Square White.png"
+             alt="Primal Landscapes Logo" style="height:40px;width:auto;" />
+      </div>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="old-home.html">Old Home</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- PROJECT ITEM HEADER SECTION -->
-  <section class="hero" style="background-image: url('images/project-hero.jpg');">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Project Name</h1>
-      <p>A closer look at one of our signature transformations.</p>
-    </div>
-  </section>
+  <!-- ────────── HERO SLIDER (finished projects) ────────── -->
+  <section class="hero-slider">
 
-  <!-- PROJECT ITEM BODY SECTION -->
-  <section class="about">
-    <div class="about-text">
-      <h2>Overview</h2>
-      <p>Details about this project’s goals, challenges, and solutions.</p>
-      <h2>Materials & Techniques</h2>
-      <p>List the materials used (pavers, wood, etc.) and any unique techniques or design elements.</p>
-    </div>
-    <div class="about-image"></div>
-  </section>
-
-  <!-- TIMELINE SECTION -->
-  <section class="transformations">
-    <h2>Timeline</h2>
-    <div class="transformation-list">
-      <div class="transformation-item"><strong>Day 1:</strong> Clearing & layout setup.</div>
-      <div class="transformation-item"><strong>Day 2-3:</strong> Patio construction & pergola assembly.</div>
-      <div class="transformation-item"><strong>Day 4:</strong> Planting & finishing details.</div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL SECTION -->
-  <section class="testimonials">
-    <h2>Client Feedback</h2>
-    <div class="testimonial-cards">
-      <div class="testimonial-card">
-        <div class="star-rating">★★★★★</div>
-        <div class="testimonial-text">“A remarkable job! The entire process was smooth and the result is stunning.”</div>
-        <div class="testimonial-author">- Project Client</div>
+    <!-- Project 1 -->
+    <div class="hero-slide active"
+         style="background-image:url('Images/Projects/P1-after.jpg');">
+      <div class="hero-slide-content">
+        <p class="hero-eyebrow">Project Showcase</p>
+        <h1>Modern Patio Oasis</h1>
+        <p class="hero-desc">
+          Porcelain paving, cedar pergola &amp; ambient lighting.
+        </p>
+        <a href="#tackled" class="btn-primary">Learn&nbsp;How</a>
       </div>
     </div>
+
+    <!-- Project 2 -->
+    <div class="hero-slide"
+         style="background-image:url('Images/Projects/P2-after.jpg');">
+      <div class="hero-slide-content">
+        <p class="hero-eyebrow">Project Showcase</p>
+        <h1>Front Drive Revival</h1>
+        <p class="hero-desc">
+          Clay block paving with granite edging and new turf frontage.
+        </p>
+        <a href="#tackled" class="btn-primary">Learn&nbsp;How</a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="hero-slide"
+         style="background-image:url('Images/Projects/P3-after.jpg');">
+      <div class="hero-slide-content">
+        <p class="hero-eyebrow">Project Showcase</p>
+        <h1>Tiered Sleeper Garden</h1>
+        <p class="hero-desc">
+          Multi-level planters conquer a steep plot.
+        </p>
+        <a href="#tackled" class="btn-primary">Learn&nbsp;How</a>
+      </div>
+    </div>
+
+    <!-- existing dot nav + arrows -->
+    <div class="hero-dots" id="heroDots"></div>
+    <button class="hero-arrow hero-arrow--left"  id="heroPrev"><span></span></button>
+    <button class="hero-arrow hero-arrow--right" id="heroNext"><span></span></button>
   </section>
 
-  <!-- GALLERY SECTION -->
-  <section class="services">
-    <h2>Project Gallery</h2>
+  <!-- ────────── HOW WE TACKLED EACH PROJECT ────────── -->
+  <section id="tackled" class="services">
+    <h2>How We Tackled Each Project</h2>
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-box">
+        <h3>Modern Patio Oasis</h3>
+        <p><strong>Materials:</strong> 900 × 600 mm porcelain slabs, cedar, LED uplights.</p>
+        <p><strong>Challenges:</strong> Poor drainage solved with recessed ACO channels.</p>
+        <p><strong>Highlights:</strong> Seamless indoor-outdoor threshold &amp; custom bench.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-box">
+        <h3>Front Drive Revival</h3>
+        <p><strong>Materials:</strong> Clay block pavers, granite sett edging, turf.</p>
+        <p><strong>Challenges:</strong> Removed 40 m<sup>2</sup> of cracked concrete without damaging utilities.</p>
+        <p><strong>Highlights:</strong> Permeable base meets SUDS regs; fresh planting scheme.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-box">
+        <h3>Tiered Sleeper Garden</h3>
+        <p><strong>Materials:</strong> Treated sleepers, decorative gravel, native shrubs.</p>
+        <p><strong>Challenges:</strong> 1 m height difference required safe terracing.</p>
+        <p><strong>Highlights:</strong> Integrated steps &amp; hidden irrigation for easy upkeep.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ────────── BEFORE & AFTER RESULTS ────────── -->
+  <section class="transformations">
+    <h2>Before &amp; After Results</h2>
+
+    <h3 style="color:var(--orange);margin:2rem 0 .75rem;">Modern Patio Oasis</h3>
     <div class="services-grid">
       <div class="service-box">
-        <img src="images/project-before.jpg" alt="Before">
-        <p>Before</p>
+        <img src="Images/Projects/P1-before.jpg" alt="Patio before">
+        <p><strong>Before</strong></p>
       </div>
       <div class="service-box">
-        <img src="images/project-during.jpg" alt="During">
-        <p>During</p>
+        <img src="Images/Projects/P1-after.jpg" alt="Patio after">
+        <p><strong>After</strong></p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--orange);margin:2.5rem 0 .75rem;">Front Drive Revival</h3>
+    <div class="services-grid">
+      <div class="service-box">
+        <img src="Images/Projects/P2-before.jpg" alt="Drive before">
+        <p><strong>Before</strong></p>
       </div>
       <div class="service-box">
-        <img src="images/project-after.jpg" alt="After">
-        <p>After</p>
+        <img src="Images/Projects/P2-after.jpg" alt="Drive after">
+        <p><strong>After</strong></p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--orange);margin:2.5rem 0 .75rem;">Tiered Sleeper Garden</h3>
+    <div class="services-grid">
+      <div class="service-box">
+        <img src="Images/Projects/P3-before.jpg" alt="Garden before">
+        <p><strong>Before</strong></p>
+      </div>
+      <div class="service-box">
+        <img src="Images/Projects/P3-after.jpg" alt="Garden after">
+        <p><strong>After</strong></p>
       </div>
     </div>
   </section>
 
-  <!-- CTA SECTION -->
+  <!-- ────────── FINAL CTA ────────── -->
   <section class="final-cta">
-    <h2>Inspired by This Project?</h2>
-    <p>We can create something just as amazing for your garden. Reach out today!</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
+    <h2>Ready for Your Own Transformation?</h2>
+    <p>Tell us about your space and get a free, no-obligation quote.</p>
+    <a href="contact.html" class="btn-primary">Contact&nbsp;Us</a>
   </section>
 
+  <!-- ────────── FOOTER ────────── -->
   <footer>
     <div class="footer-links">
-      <a href="index.html">Home</a> | 
-      <a href="old-home.html">Old Home</a> | 
-      <a href="services.html">Services</a> | 
-      <a href="portfolio.html">Portfolio</a> | 
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="portfolio.html">Portfolio</a> |
       <a href="contact.html">Contact</a>
     </div>
     <p>&copy; 2025 Primal Landscapes. All rights reserved.</p>
+
+    <div class="footer-socials">
+      <a href="https://facebook.com"  target="_blank" rel="noopener">
+        <img src="Images/socials/fb.png" alt="Facebook" class="social-icon" />
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener">
+        <img src="Images/Socials/ig.png" alt="Instagram" class="social-icon" />
+      </a>
+      <a href="https://x.com"          target="_blank" rel="noopener">
+        <img src="Images/Socials/logo-white.png" alt="X" class="social-icon" />
+      </a>
+      <a href="https://linkedin.com"   target="_blank" rel="noopener">
+        <img src="images/Socials/Lin.png" alt="LinkedIn" class="social-icon" />
+      </a>
+    </div>
   </footer>
 
+  <!-- scripts -->
+  <script src="scripts.js"></script>
 </body>
 </html>
+
+
