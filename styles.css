@@ -140,19 +140,30 @@ body{
 /* ────────── FINAL CTA ────────── */
 .final-cta{background:var(--charcoal);text-align:center;padding:4rem 1rem;}
 .final-cta h2{font-size:1.5rem;margin-bottom:1rem;}
-.final-cta p{margin-bottom:2rem;}
-.final-cta .btn-primary{margin-top:2rem;}
+.final-cta p{margin-bottom:1rem;}
+.final-cta .btn-primary{margin-top:1rem;}
 
 /* ────────── FOOTER ────────── */
-footer{background:var(--charcoal);text-align:center;padding:2rem 1rem;margin-top:2rem;}
+footer{background:var(--charcoal);text-align:center;padding:0rem 0rem;margin-top:0rem;}
 .footer-links{margin-bottom:1rem;}
 .footer-links a{color:var(--white);text-decoration:none;margin:0 .5rem;}
 .footer-links a:hover{color:var(--orange);}
 .footer-socials{margin-top:1rem;}
 .footer-socials a{margin:0 .5rem;display:inline-block;}
-.social-icon{width:24px;height:24px;object-fit:contain;transition:opacity .2s;}
+/* existing rule for all icons */
+.social-icon{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  transition:opacity .2s;
+}
+
+.linkedin{
+  transform:scale(1.20);
+}
+
 .social-icon:hover{opacity:.8;}
-footer p{font-size:.875rem;margin-top:.5rem;}
+footer p{font-size:.875rem;margin-top:.1rem;}
 
 /* ────────── RESPONSIVE ────────── */
 @media(max-width:768px){
