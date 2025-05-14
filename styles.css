@@ -221,5 +221,55 @@ footer p{font-size:.875rem;margin-top:.1rem;}
   break-inside:avoid;
 }
 
+  /* ---------- CONTACT FORM ---------- */
+    .contact-form {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;          /* full‑width */
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;          /* full‑width */
+      justify-self: center;
+      padding: 0.75rem 2.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #f79b1e;          /* orange matches brand */
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .contact-form button:hover {
+      background: #d88614;
+    }
+
+    /* make headings / inputs breathe on mobile */
+    @media (max-width: 480px) {
+      .contact-form {
+        grid-template-columns: 1fr; /* single column */
+      }
+    }
+
 
 
