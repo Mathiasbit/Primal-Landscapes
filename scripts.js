@@ -1,78 +1,91 @@
-/**
- * scripts.js
- *
- * 1) Edge-arrow hero slider with headline grow/shrink & text slide-in
- * 2) Sticky-nav opacity change on scroll
- */
+/** scripts.js – hero, sticky, lightbox **/
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ─── Hero slider ───────────────────────────────────────── */
-  const slides = Array.from(document.querySelectorAll('.hero-slide'));
-  const dots   = document.getElementById('heroDots');
-  const prevBt = document.getElementById('heroPrev');
-  const nextBt = document.getElementById('heroNext');
-
+  /* hero */
+  const slides = [...document.querySelectorAll('.hero-slide')],
+        dots   = document.getElementById('heroDots'),
+        prevBt = document.getElementById('heroPrev'),
+        nextBt = document.getElementById('heroNext');
   let idx = 0, timer;
 
-  /* create dots */
   slides.forEach((_, i) => {
     const d = document.createElement('span');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.onclick   = () => goTo(i, i > idx ? 'right' : 'left');
+    d.className = 'dot' + (i ? '' : ' active');
+    d.onclick = () => goTo(i, i > idx ? 'right' : 'left');
     dots.appendChild(d);
   });
-  const dotEls = Array.from(dots.children);
+  const dotEls = [...dots.children];
+  const title  = i => (slides[i].querySelector('h1') || {}).textContent?.trim() || '';
 
-  /* helper to read each slide's <h1> text */
-  const title = i => slides[i].querySelector('h1').textContent.trim();
-
-  function setArrowLabels(){
+  const setArrows = () => {
     prevBt.firstElementChild.textContent = '← ' + title((idx - 1 + slides.length) % slides.length);
-    nextBt.firstElementChild.textContent = title((idx + 1) % slides.length) + ' →';
-  }
+    nextBt.firstElementChild.textContent =       title((idx + 1) % slides.length) + ' →';
+  };
 
-  function goTo(target, dir = 'right'){
-    if (target === idx) return;
-
-    /* clear old state */
-    slides[idx].classList.remove('active', 'from-left', 'from-right');
+  function goTo(t, dir='right'){
+    if (t===idx) return;
+    slides[idx].classList.remove('active','from-left','from-right');
     dotEls[idx].classList.remove('active');
-
-    /* prep incoming slide with directional offset */
-    slides[target].classList.add('from-' + dir);
-
-    /* trigger reflow so animation starts */
-    requestAnimationFrame(() => {
-      slides[target].classList.add('active');
-    });
-
-    dotEls[target].classList.add('active');
-    idx = target;
-    setArrowLabels();
-    resetTimer();
+    slides[t].classList.add('from-'+dir);
+    requestAnimationFrame(()=>slides[t].classList.add('active'));
+    dotEls[t].classList.add('active');
+    idx=t; setArrows(); reset();
   }
-
-  function next() { goTo((idx + 1) % slides.length, 'right'); }
-  function prev() { goTo((idx - 1 + slides.length) % slides.length, 'left'); }
+  const next = () => goTo((idx+1)%slides.length,'right');
+  const prev = () => goTo((idx-1+slides.length)%slides.length,'left');
 
   prevBt.onclick = prev;
   nextBt.onclick = next;
-  setArrowLabels();
+  setArrows();
 
-  /* auto-rotate */
-  function resetTimer(){
+  const reset = () => {
     clearInterval(timer);
-    timer = setInterval(next, 8000);   // 8 s per slide
-  }
-  resetTimer();
+    if(slides.length>1) timer = setInterval(next, 8000);
+  };
+  reset();
 
-  /* ─── Sticky nav ────────────────────────────────────────── */
+  /* sticky */
   const header = document.getElementById('stickyHeader');
-  window.addEventListener('scroll', () =>
-    header.classList.toggle('scrolled', window.scrollY > 0)
-  );
+  addEventListener('scroll', ()=>header.classList.toggle('scrolled',scrollY>0));
+
+  /* lightbox */
+  const gallery = document.getElementById('gallery');
+  if (gallery){
+    const lb     = document.getElementById('lightbox'),
+          lbImg  = lb.querySelector('img'),
+          pBtn   = lb.querySelector('.lightbox-prev'),
+          nBtn   = lb.querySelector('.lightbox-next'),
+          thumbs = [...gallery.querySelectorAll('img')];
+    let cur = 0;
+
+    const show = i => {
+      cur = (i+thumbs.length)%thumbs.length;
+      lbImg.src = thumbs[cur].src;
+      lbImg.alt = thumbs[cur].alt;
+    };
+
+    gallery.onclick = e=>{
+      if(e.target.tagName==='IMG'){
+        cur = thumbs.indexOf(e.target);
+        show(cur);
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden','false');
+      }
+    };
+    pBtn.onclick = e=>{e.stopPropagation(); show(cur-1);};
+    nBtn.onclick = e=>{e.stopPropagation(); show(cur+1);};
+    const close = ()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';};
+    lb.onclick = e=>{if(e.target===lb) close();};
+    addEventListener('keyup',e=>{
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape') close();
+      else if(e.key==='ArrowLeft') show(cur-1);
+      else if(e.key==='ArrowRight') show(cur+1);
+    });
+  }
 });
+
 
 
 
