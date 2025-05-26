@@ -586,5 +586,8 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+.transformations {
+  text-align:center; 
+}
 
 
